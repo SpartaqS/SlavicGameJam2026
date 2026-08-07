@@ -6,6 +6,9 @@ public class FuelControl : MonoBehaviour, IParameterControlPanel, IBeginDragHand
 {
     [SerializeField] private float fuelPerPumpDistance = 0.1f;
     [SerializeField] private Vector2 moveClamp = new Vector2(0, 1);
+    [SerializeField] private Reactor reactor = null;
+
+    [SerializeField] private ReactorParameterType parameterType = ReactorParameterType.FuelAmount;
 
     private Plane draggingPlane;
 
@@ -77,7 +80,7 @@ public class FuelControl : MonoBehaviour, IParameterControlPanel, IBeginDragHand
                 float pumpAmount = distance * fuelPerPumpDistance;
 
                 Debug.Log($"Pumped {pumpAmount} fuel...");
-                //TODO - Pump fuel into reactor here...
+                reactor.ApplyOnClickDelta(parameterType, pumpAmount);
             }
         }
     }
