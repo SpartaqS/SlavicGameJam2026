@@ -86,4 +86,6 @@ public class FuelControl : MonoBehaviour, IParameterControlPanel, IBeginDragHand
     {
         dragging = false;
     }
+
+    public ReactorParameterType controlledParameterType => ReactorParameterType.FuelRodInputPercent;
 }
