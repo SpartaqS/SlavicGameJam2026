@@ -14,6 +14,17 @@ public class Reactor : MonoBehaviour
     // TODO?
     //OnFail <reason>
 
+    public void applyOnClickDelta(ReactorParameterType parameterType, float delta)
+    {
+        foreach (ReactorParameter parameter in parameters) { 
+            if(parameterType == parameter.Type)
+            {
+                parameter.ApplyDelta(delta);
+                break;
+            }
+        }
+    }
+
     private void Awake() //TODO move to scriptable objects or sth so it is editable outside of code?
     {// Initialize Parameters and their relationships
         parameters = new List<ReactorParameter>();
