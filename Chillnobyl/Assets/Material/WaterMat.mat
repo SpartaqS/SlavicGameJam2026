@@ -38,13 +38,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alfa: 0.58
+    - _Alfa: 0.62
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Speed: 0.16
-    - _TopMask: -0.21
+    - _Speed: 0.42
+    - _TopMask: 0.09
     m_Colors:
-    - _Color: {r: 0, g: 0.7789781, b: 1, a: 1}
+    - _Color: {r: 0, g: 0.8889927, b: 0.9137466, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6580435663910751415
