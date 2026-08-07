@@ -29,4 +29,6 @@ public class FuelControl : MonoBehaviour, IParameterControlPanel
             };
         }
     }
+
+    public ReactorParameterType controlledParameterType => ReactorParameterType.FuelRodInputPercent;
 }

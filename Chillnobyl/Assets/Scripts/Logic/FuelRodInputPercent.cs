@@ -15,7 +15,7 @@ public class FuelRodInputPercent : ReactorParameter
     }
     public FuelRodInputPercent(float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null)
     {
-        type = ReactorParameterType.Temperature;
+        type = ReactorParameterType.FuelRodInputPercent;
         if (value != null)
             this.value = value.Value;
         else

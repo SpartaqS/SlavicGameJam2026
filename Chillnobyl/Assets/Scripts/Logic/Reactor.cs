@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using UnityEngine;
 
@@ -8,6 +10,7 @@ public class Reactor : MonoBehaviour
     [SerializeField] float tickTimer = 0f;
 
     [SerializeField] List<ReactorParameter> parameters;
+    [SerializeField] List<IParameterControlPanel> controlPanels;
     // TODO?
     //OnFail <reason>
 
@@ -21,6 +24,20 @@ public class Reactor : MonoBehaviour
         parameters.Add(fuelRodInputPercent);
 
         tickPeroidInSeconds = LogicConstants.tickPeroidInSeconds;
+
+        // Get references to all control panels
+        controlPanels = new List<IParameterControlPanel>();
+        var theInterface = typeof(IParameterControlPanel);
+        var types = AppDomain.CurrentDomain.GetAssemblies() // Get all assemblies
+            .SelectMany(a => a.GetTypes()) // Get all types from all assemblies
+            .Where(t => theInterface.IsAssignableFrom(t)); // Search for types that implement the interface
+
+        var allGameObjects = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IParameterControlPanel>();
+        foreach(IParameterControlPanel cp in allGameObjects)
+        {
+            controlPanels.Add(cp);
+        }
+            
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -69,11 +86,16 @@ public class Reactor : MonoBehaviour
                     deltasForParameters[ip.InfluencedParameter].Add(ip.DeltaFunc());
                 }
             }
-            //List<deltas>.Add(parameter.deltaOnTick)
         }
 
         // TODO loop thorugh controls, collect deltas for evert parameter
-
+        foreach (IParameterControlPanel controlPanel in controlPanels)
+        { 
+            if (!MathF.Equals(controlPanel.deltaOnState,0f))
+            {
+                deltasForParameters[controlPanel.controlledParameterType].Add(controlPanel.deltaOnState());
+            }
+        }
 
         // Sapply deltas
 
