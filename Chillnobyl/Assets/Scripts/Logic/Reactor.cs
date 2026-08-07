@@ -14,7 +14,7 @@ public class Reactor : MonoBehaviour
     // TODO?
     //OnFail <reason>
 
-    public void applyOnClickDelta(ReactorParameterType parameterType, float delta)
+    public void ApplyOnClickDelta(ReactorParameterType parameterType, float delta)
     {
         foreach (ReactorParameter parameter in parameters) { 
             if(parameterType == parameter.Type)
@@ -23,6 +23,19 @@ public class Reactor : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public ReactorParameter GetParameter(ReactorParameterType parameterType)
+    {
+        foreach (ReactorParameter parameter in parameters)
+        {
+            if (parameterType == parameter.Type)
+            {
+                return parameter;
+            }
+        }
+
+        return null;
     }
 
     private void Awake() //TODO move to scriptable objects or sth so it is editable outside of code?
