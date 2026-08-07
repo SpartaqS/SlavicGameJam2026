@@ -5,17 +5,17 @@ using UnityEngine;
 public abstract class ReactorParameter
 {
     protected ReactorParameterType type;
-    protected float value;
+    protected float value; //generic<T>
     protected Func<float> defaultDeltaFunc;
     protected Func<bool> hasFailed;
     protected List<ParameterInfluence> influencedParameters;
 
-    public float Value { get => value; }
-    public virtual void ApplyDelta(float delta)
+    public float Value { get => value; } //<T>
+    public virtual void ApplyDelta(float delta) //<T>
     {
         value += delta;
     }
-    public Func<float> DefaultDeltaFunc { get => defaultDeltaFunc; }
+    public Func<float> DefaultDeltaFunc { get => defaultDeltaFunc; } //<T>
     public Func<bool> HasFailed { get => hasFailed; } // failValue
     public List<ParameterInfluence> InfluencedParameters { get => influencedParameters; }
     public ReactorParameterType Type { get => type; set => type = value; }
