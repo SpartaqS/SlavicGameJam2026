@@ -15,8 +15,8 @@ public class FuelAmount : ReactorParameter
     {
         type = ReactorParameterType.FuelAmount;
 
-        float minValue = 0f;
-        float maxValue = 100f;
+        minValue = 0f;
+        maxValue = 100f;
         if (value != null)
             this.value = value.Value;
         else

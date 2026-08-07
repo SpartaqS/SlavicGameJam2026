@@ -8,8 +8,8 @@ public class Temperature : ReactorParameter
     {
         type = ReactorParameterType.Temperature;
 
-        float minValue = 100f; // BALANCEPARAM
-        float maxValue = 1000f; // BALANCEPARAM
+        minValue = 100f; // BALANCEPARAM
+        maxValue = 1000f; // BALANCEPARAM
         if (value != null)
             this.value = value.Value;
         else

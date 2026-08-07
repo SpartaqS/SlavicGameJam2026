@@ -1185,12 +1185,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1135095954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76a37eccb28e3914a8f6ad972d441f2b, type: 3}
+  m_Script: {fileID: 11500000, guid: f91d85d809aad9f40b4ebb912bfa9b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FuelControlPumpHandle
   fuelPerPumpDistance: -1
-  moveClamp: {x: -1.5, y: 0}
-  reactor: {fileID: 339799385}
+  moveClamp: {x: 0, y: 1}
   parameterType: 1
 --- !u!65 &1135095957
 BoxCollider:
@@ -2054,12 +2053,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1688320945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76a37eccb28e3914a8f6ad972d441f2b, type: 3}
+  m_Script: {fileID: 11500000, guid: f91d85d809aad9f40b4ebb912bfa9b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FuelControlPumpHandle
   fuelPerPumpDistance: 1
-  moveClamp: {x: -1.5, y: 0}
-  reactor: {fileID: 339799385}
+  moveClamp: {x: 0, y: 1}
   parameterType: 1
 --- !u!65 &1688320948
 BoxCollider:
@@ -2753,12 +2751,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2061066139}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76a37eccb28e3914a8f6ad972d441f2b, type: 3}
+  m_Script: {fileID: 11500000, guid: f91d85d809aad9f40b4ebb912bfa9b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FuelControlPumpHandle
-  fuelPerPumpDistance: 1
-  moveClamp: {x: -1.5, y: 0}
-  reactor: {fileID: 339799385}
+  fuelPerPumpDistance: 0.1
+  moveClamp: {x: 0, y: 1}
   parameterType: 2
 --- !u!65 &2061066142
 BoxCollider:

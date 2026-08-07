@@ -16,8 +16,8 @@ public class FuelRodInputPercent : ReactorParameter
     {
         type = ReactorParameterType.FuelRodInputPercent;
 
-        float minValue = 0f;
-        float maxValue = 1f;
+        minValue = 0f;
+        maxValue = 1f;
         if (value != null)
             this.value = value.Value;
         else
