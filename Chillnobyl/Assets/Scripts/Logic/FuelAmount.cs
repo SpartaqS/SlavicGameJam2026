@@ -20,7 +20,7 @@ public class FuelAmount : ReactorParameter
         if (value != null)
             this.value = value.Value;
         else
-            this.value = 75f;
+            this.value = 3f;
 
         if (defaultDeltaFunc != null)
             this.defaultDeltaFunc = defaultDeltaFunc;

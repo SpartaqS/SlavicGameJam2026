@@ -36,6 +36,6 @@ public class Temperature : ReactorParameter
 
     private bool HasFailedFunc()
     {
-        return value > maxValue || value < minValue;
+        return value >= maxValue || value <= minValue;
     }
 }

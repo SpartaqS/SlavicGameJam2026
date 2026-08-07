@@ -14,6 +14,8 @@ public class Reactor : MonoBehaviour
     // TODO?
     //OnFail <reason>
 
+    GameplayManager gameplayManager;
+
     public void ApplyOnClickDelta(ReactorParameterType parameterType, float delta)
     {
         foreach (ReactorParameter parameter in parameters) { 
@@ -40,6 +42,8 @@ public class Reactor : MonoBehaviour
 
     private void Awake() //TODO move to scriptable objects or sth so it is editable outside of code?
     {// Initialize Parameters and their relationships
+        gameplayManager = FindFirstObjectByType<GameplayManager>();
+
         parameters = new List<ReactorParameter>();
 
         ReactorParameter temperature = new Temperature();
@@ -151,9 +155,9 @@ public class Reactor : MonoBehaviour
         {
             if(parameter.HasFailed())
             {
-                Debug.LogWarning($"Failed because: {parameter.Type.ToString()}");
                 // TODO trigger failstate
                 // loss of control + animations + whatever
+                gameplayManager.HandleGameLoss(parameter.Type, parameter.WasTooHigh);
             }
         }
     }

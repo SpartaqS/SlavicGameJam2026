@@ -21,6 +21,9 @@ public abstract class ReactorParameter
     }
     public Func<float> DefaultDeltaFunc { get => defaultDeltaFunc; }
     public Func<bool> HasFailed { get => hasFailed; } // failValue
+
+    public bool WasTooHigh { get => Value > maxValue; }
+    public bool WasTooLow { get => Value > minValue; }
     public List<ParameterInfluence> InfluencedParameters { get => influencedParameters; }
     public ReactorParameterType Type { get => type; set => type = value; }
 }
