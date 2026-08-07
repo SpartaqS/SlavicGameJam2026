@@ -2,17 +2,24 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Temperature : ReactorParameter
+public class FuelAmount : ReactorParameter
 {
-    float minAllowedTemperature = 100f; // BALANCEPARAM
-    float maxAllowedTemperature = 1000f; // BALANCEPARAM
-    public Temperature(float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null)
+    float minValue = -1f;
+    float maxValue = 100f;
+    float minAllowedValue = 0f;  // BALANCEPARAM
+
+    public override void ApplyDelta(float delta)
     {
-        type = ReactorParameterType.Temperature;
+        base.ApplyDelta(delta);
+        value = Mathf.Clamp(value, minValue, maxValue);
+    }
+    public FuelAmount(float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null)
+    {
+        type = ReactorParameterType.FuelAmount;
         if (value != null)
             this.value = value.Value;
         else
-            this.value = 200f;
+            this.value = 75f;
 
         if (defaultDeltaFunc != null)
             this.defaultDeltaFunc = defaultDeltaFunc;
@@ -23,7 +30,7 @@ public class Temperature : ReactorParameter
             this.hasFailed = hasFailed;
         else
         {
-            this.hasFailed = HasFailedFunc;
+            this.hasFailed = () => { return value <= minAllowedValue; };
         }
         if(influencedParameters != null)
             this.influencedParameters = influencedParameters;
@@ -31,10 +38,5 @@ public class Temperature : ReactorParameter
         {
             this.influencedParameters = null;
         }
-    }
-
-    private bool HasFailedFunc()
-    {
-        return value > maxAllowedTemperature || value < minAllowedTemperature;
     }
 }

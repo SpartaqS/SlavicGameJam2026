@@ -20,8 +20,10 @@ public class Reactor : MonoBehaviour
 
         ReactorParameter temperature = new Temperature();
         ReactorParameter fuelRodInputPercent = new FuelRodInputPercent();
+        ReactorParameter fuelAmount = new FuelAmount();
         parameters.Add(temperature);
         parameters.Add(fuelRodInputPercent);
+        parameters.Add(fuelAmount);
 
         tickPeroidInSeconds = LogicConstants.tickPeroidInSeconds;
 
@@ -88,16 +90,16 @@ public class Reactor : MonoBehaviour
             }
         }
 
-        // TODO loop thorugh controls, collect deltas for evert parameter
+        // loop thorugh controls, collect deltas for evert parameter
         foreach (IParameterControlPanel controlPanel in controlPanels)
-        { 
-            if (!MathF.Equals(controlPanel.deltaOnState,0f))
+        {
+            if (!MathF.Equals(controlPanel.deltaOnState, 0f))
             {
                 deltasForParameters[controlPanel.controlledParameterType].Add(controlPanel.deltaOnState());
             }
         }
 
-        // Sapply deltas
+        // apply deltas
 
         foreach (ReactorParameterType parameterType in parametersType)
         {

@@ -40,7 +40,7 @@ public enum ReactorParameterType
 {
     Temperature = 0,
     FuelRodInputPercent = 1,
-    //FuelAmount = 2,
+    FuelAmount = 2,
     //Coolant = 3,
     //PowerOutput = 4
 }

@@ -6,7 +6,8 @@ public class FuelRodInputPercent : ReactorParameter
 {
     float minValue = 0f;
     float maxValue = 1f;
-    float FullFuelInputTemperatureDelta = 100f;
+    float FullFuelInputTemperatureDeltaPerSecond = 100f; // BALANCEPARAM
+    float FullFuelInputConsumptionDeltaPerSecond = 1f; // BALANCEPARAM
 
     public override void ApplyDelta(float delta)
     {
@@ -39,8 +40,13 @@ public class FuelRodInputPercent : ReactorParameter
             this.influencedParameters = new List<ParameterInfluence>();
             this.influencedParameters.Add(new ParameterInfluence(
                     ReactorParameterType.Temperature,
-                    () => { return this.value * FullFuelInputTemperatureDelta; }
+                    () => { return this.value * FullFuelInputTemperatureDeltaPerSecond * LogicConstants.tickPeroidInSeconds; }
                     )
+            );
+            this.influencedParameters.Add(new ParameterInfluence(
+                    ReactorParameterType.FuelAmount,
+                    () => { return -this.value * FullFuelInputConsumptionDeltaPerSecond * LogicConstants.tickPeroidInSeconds; ; }
+                    ) // - because more rod inputted => more fuel used
             );
         }
     }
