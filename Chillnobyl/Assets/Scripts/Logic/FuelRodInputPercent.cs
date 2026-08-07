@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FuelRodInputPercent : ReactorParameter
 {
-    float FullFuelInputTemperatureDeltaPerSecond = 10f; // BALANCEPARAM
+    float FullFuelInputTemperatureDeltaPerSecond = 20f; // BALANCEPARAM
     float FullFuelInputConsumptionDeltaPerSecond = 10f; // BALANCEPARAM
 
     public override void ApplyDelta(float delta)
