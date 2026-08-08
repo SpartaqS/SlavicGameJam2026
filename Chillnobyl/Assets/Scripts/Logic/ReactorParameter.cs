@@ -6,17 +6,24 @@ public abstract class ReactorParameter
 {
     protected ReactorParameterType type;
     protected float value; //generic<T>
+    protected float minValue = 0f;
+    protected float maxValue = 100f;
     protected Func<float> defaultDeltaFunc;
     protected Func<bool> hasFailed;
     protected List<ParameterInfluence> influencedParameters;
 
     public float Value { get => value; } //<T>
+    public float MinValue { get => minValue; }
+    public float MaxValue { get => maxValue; }
     public virtual void ApplyDelta(float delta) //<T>
     {
         value += delta;
     }
     public Func<float> DefaultDeltaFunc { get => defaultDeltaFunc; } //<T>
     public Func<bool> HasFailed { get => hasFailed; } // failValue
+
+    public bool WasTooHigh { get => Value > maxValue; }
+    public bool WasTooLow { get => Value > minValue; }
     public List<ParameterInfluence> InfluencedParameters { get => influencedParameters; }
     public ReactorParameterType Type { get => type; set => type = value; }
 }
