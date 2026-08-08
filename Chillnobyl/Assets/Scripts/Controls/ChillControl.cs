@@ -1,7 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ChillControl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class ChillControl : MonoBehaviour, IParameterControlPanel, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField] private Transform leverBase;
     [SerializeField] private Transform leverRotationBase;
@@ -10,6 +11,8 @@ public class ChillControl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     [SerializeField] private float maxAngle = -60f;
     [SerializeField] private float leverBackLerpValue = 0.05f;
     [SerializeField] private float leverBackLerpMin = 0.01f;
+    [SerializeField] private ReactorParameterType parameterType = ReactorParameterType.CoolantR;
+    [SerializeField] private float coolantPerDistancePerState = 1f;
 
     private Reactor reactor = null;
     private bool dragging;
@@ -18,6 +21,34 @@ public class ChillControl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     private Plane draggingPlane;
     private Camera mainCamera = null;
+
+    public ReactorParameterType controlledParameterType => parameterType;
+
+    public bool isMalfunctioning { get; set; }
+
+    public Func<float> deltaOnClick
+    {
+        get
+        {
+            return () =>
+            {
+                Debug.Log("Delta on Click in Fuel Control");
+                return 0f;
+            };
+        }
+    }
+
+    public Func<float> deltaOnState
+    {
+        get
+        {
+            return () =>
+            {
+                float currentAngle = (leverBase.localRotation.eulerAngles.x + Mathf.Abs(minAngle)) % 360;
+                return currentAngle > minAngle + Mathf.Abs(minAngle) ? Mathf.InverseLerp(minAngle + Mathf.Abs(minAngle), maxAngle + Mathf.Abs(minAngle), currentAngle) * coolantPerDistancePerState : 0f;
+            };
+        }
+    }
 
     // ---------- Unity methods
 
