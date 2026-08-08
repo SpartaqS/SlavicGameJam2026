@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CoolantR : CoolantBase
 {
-    public CoolantR(float fullCoolantTemperatureDPS, float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null) : base(value, defaultDeltaFunc, hasFailed)
+    public CoolantR(UnityAction<ReactorParameterType, int> intervalReachHandler, float fullCoolantTemperatureDPS, float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null, List<float> stateTresholds = null) : base(coolantType: ReactorParameterType.CoolantR, intervalReachHandler, value, defaultDeltaFunc, hasFailed, stateTresholds: stateTresholds)
     {
         float fullCoolantTemperatureDeltaPerSecond = fullCoolantTemperatureDPS;
-        type = ReactorParameterType.CoolantR;
         
         this.influencedParameters = new List<ParameterInfluence>();
         this.influencedParameters.Add(new ParameterInfluence(

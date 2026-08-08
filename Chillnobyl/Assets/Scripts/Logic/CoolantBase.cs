@@ -1,20 +1,17 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class CoolantBase : ReactorParameter
 {
     protected float fullCoolantTemperatureDeltaPerSecond = 0f;
-    public CoolantBase(float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null)
+    public CoolantBase(ReactorParameterType coolantType, UnityAction<ReactorParameterType, int> intervalReachHandler, float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null, List<float> stateTresholds = null) : base(type: coolantType, intervalReachHandler, value, stateTresholds: stateTresholds)
     {
         type = ReactorParameterType.CoolantR;
 
         minValue = LogicConstants.minCoolantColorAmount;
         maxValue = LogicConstants.maxCoolantColorAmount;
-        if (value != null)
-            this.value = value.Value;
-        else
-            this.value = 128f;
 
         if (defaultDeltaFunc != null)
             this.defaultDeltaFunc = defaultDeltaFunc;

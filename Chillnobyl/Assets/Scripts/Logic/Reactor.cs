@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Reactor : MonoBehaviour
 {
@@ -22,8 +23,10 @@ public class Reactor : MonoBehaviour
     [SerializeField] float temperatureDeltaPerFullCoolantRPerSecond = -20f;
     [SerializeField] float temperatureDeltaPerFullCoolantGPerSecond = -20f;
     [SerializeField] float temperatureDeltaPerFullCoolantBPerSecond = -20f;
+    [SerializeField] List<float> temperatureTresholds;
+    
 
-    [Header("Coolant")]
+[Header("Coolant")]
     [SerializeField] [Range(LogicConstants.minCoolantColorAmount, LogicConstants.maxCoolantColorAmount)] 
     float coolantRStartValue = 32f;
     [SerializeField] [Range(LogicConstants.minCoolantColorAmount, LogicConstants.maxCoolantColorAmount)] 
@@ -44,6 +47,7 @@ public class Reactor : MonoBehaviour
 
 
     GameplayManager gameplayManager;
+    public UnityEvent<ReactorParameterType, int> OnParameterReachInterval;
 
     public void ApplyOnClickDelta(ReactorParameterType parameterType, float delta)
     {
@@ -70,10 +74,9 @@ public class Reactor : MonoBehaviour
     }
 
     private void Awake()
-    {// Initialize Parameters and their relationships
+    {
+        // Initialize all event connections
         gameplayManager = FindFirstObjectByType<GameplayManager>();
-
-        InitializeReactorParameters();
 
         tickPeroidInSeconds = LogicConstants.tickPeroidInSeconds;
 
@@ -92,7 +95,7 @@ public class Reactor : MonoBehaviour
             
     }
 
-    [ContextMenu("Set reactor parameters to config values")]
+    //[ContextMenu("Set reactor parameters to config values")]
     void InitializeReactorParameters()
     {
         parameters = new List<ReactorParameter>();
@@ -100,14 +103,14 @@ public class Reactor : MonoBehaviour
         Vector3 CoolantsRGBLossPer100D = new Vector3(coolantRDeltaPer100DPerSecond, coolantGDeltaPer100DPerSecond, coolantBDeltaPer100DPerSecond);
         Vector2 fuelRodDeltas = new Vector2(fullFuelInputTemperatureDeltaPerSecond, fullFuelInputConsumptionDeltaPerSecond);
 
-        ReactorParameter temperature = new Temperature(coolantDeltaPer100DPerSecond: CoolantsRGBLossPer100D, value: temperatureStartValue);
-        ReactorParameter fuelRodInputPercent = new FuelRodInputPercent(value: startingRodInputPercent, temperatureAndFuelUsageDeltas: fuelRodDeltas);
-        ReactorParameter fuelAmount = new FuelAmount(value: startingFuelAmount);
-        ReactorParameter coolantRAmount = new CoolantR(fullCoolantTemperatureDPS: temperatureDeltaPerFullCoolantRPerSecond,
+        ReactorParameter temperature = new Temperature(HandleParameterReachInterval, coolantDeltaPer100DPerSecond: CoolantsRGBLossPer100D, value: temperatureStartValue, stateTresholds: temperatureTresholds);
+        ReactorParameter fuelRodInputPercent = new FuelRodInputPercent(HandleParameterReachInterval, value: startingRodInputPercent, temperatureAndFuelUsageDeltas: fuelRodDeltas);
+        ReactorParameter fuelAmount = new FuelAmount(HandleParameterReachInterval, value: startingFuelAmount);
+        ReactorParameter coolantRAmount = new CoolantR(HandleParameterReachInterval, fullCoolantTemperatureDPS: temperatureDeltaPerFullCoolantRPerSecond,
                                                         value: coolantRStartValue);
-        ReactorParameter coolantGAmount = new CoolantG(fullCoolantTemperatureDPS: temperatureDeltaPerFullCoolantGPerSecond,
+        ReactorParameter coolantGAmount = new CoolantG(HandleParameterReachInterval, fullCoolantTemperatureDPS: temperatureDeltaPerFullCoolantGPerSecond,
                                                         value: coolantGStartValue);
-        ReactorParameter coolantBAmount = new CoolantB(fullCoolantTemperatureDPS: temperatureDeltaPerFullCoolantBPerSecond,
+        ReactorParameter coolantBAmount = new CoolantB(HandleParameterReachInterval, fullCoolantTemperatureDPS: temperatureDeltaPerFullCoolantBPerSecond,
                                                         value: coolantBStartValue);
 
         parameters.Add(temperature);
@@ -121,6 +124,8 @@ public class Reactor : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Initialize Parameters and their relationships (and call eny events related to state reaching)
+        InitializeReactorParameters();
         DebugPrintParameters();
         tickTimer = 0f;
     }
@@ -196,6 +201,12 @@ public class Reactor : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void HandleParameterReachInterval(ReactorParameterType type, int newState)
+    {
+        Debug.Log($"Parameter: {type.ToString()} reached state: {newState}");
+        OnParameterReachInterval.Invoke(type, newState);
     }
 
     private void CheckForFailure()
