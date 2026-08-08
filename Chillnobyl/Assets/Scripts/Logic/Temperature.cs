@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Temperature : ReactorParameter
 {
+    readonly float minAllowedValue = 100f; // BALANCEPARAM
+    readonly float maxAllowedValue = 1000f; // BALANCEPARAM
     public Temperature(float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null)
     {
         type = ReactorParameterType.Temperature;
+        minValue = 90f;
+        maxValue = 1100f;
 
-        minValue = 100f; // BALANCEPARAM
-        maxValue = 1000f; // BALANCEPARAM
         if (value != null)
             this.value = value.Value;
         else
@@ -36,6 +38,16 @@ public class Temperature : ReactorParameter
 
     private bool HasFailedFunc()
     {
-        return value >= maxValue || value <= minValue;
+        return WasTooHigh() || WasTooLow();
+    }
+
+    public override bool WasTooHigh()
+    {
+        return value >= maxAllowedValue;
+    }
+
+    public override bool WasTooLow()
+    {
+        return value <= minAllowedValue;
     }
 }

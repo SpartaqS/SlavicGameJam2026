@@ -5,25 +5,26 @@ using UnityEngine;
 public abstract class ReactorParameter
 {
     protected ReactorParameterType type;
-    protected float value; //generic<T>
+    protected float value;
     protected float minValue = 0f;
     protected float maxValue = 100f;
     protected Func<float> defaultDeltaFunc;
     protected Func<bool> hasFailed;
     protected List<ParameterInfluence> influencedParameters;
 
-    public float Value { get => value; } //<T>
+    public float Value { get => value; }
     public float MinValue { get => minValue; }
     public float MaxValue { get => maxValue; }
-    public virtual void ApplyDelta(float delta) //<T>
+    public virtual void ApplyDelta(float delta)
     {
         value += delta;
+        value = Mathf.Clamp(value, minValue, maxValue);
     }
-    public Func<float> DefaultDeltaFunc { get => defaultDeltaFunc; } //<T>
-    public Func<bool> HasFailed { get => hasFailed; } // failValue
+    public Func<float> DefaultDeltaFunc { get => defaultDeltaFunc; }
+    public Func<bool> HasFailed { get => hasFailed; }
 
-    public bool WasTooHigh { get => Value > maxValue; }
-    public bool WasTooLow { get => Value > minValue; }
+    public virtual bool WasTooHigh() { return false; }
+    public virtual bool WasTooLow() { return false; }
     public List<ParameterInfluence> InfluencedParameters { get => influencedParameters; }
     public ReactorParameterType Type { get => type; set => type = value; }
 }

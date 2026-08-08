@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class FuelRodInputPercent : ReactorParameter
 {
-    float FullFuelInputTemperatureDeltaPerSecond = 20f; // BALANCEPARAM
-    float FullFuelInputConsumptionDeltaPerSecond = 10f; // BALANCEPARAM
+    float fullFuelInputTemperatureDeltaPerSecond = 20f; // BALANCEPARAM
+    float fullFuelInputConsumptionDeltaPerSecond = 10f; // BALANCEPARAM
 
-    public override void ApplyDelta(float delta)
-    {
-        base.ApplyDelta(delta);
-        value = Mathf.Clamp(value, minValue, maxValue);
-    }
     public FuelRodInputPercent(float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null)
     {
         type = ReactorParameterType.FuelRodInputPercent;
@@ -41,12 +36,12 @@ public class FuelRodInputPercent : ReactorParameter
             this.influencedParameters = new List<ParameterInfluence>();
             this.influencedParameters.Add(new ParameterInfluence(
                     ReactorParameterType.Temperature,
-                    () => { return this.value * FullFuelInputTemperatureDeltaPerSecond * LogicConstants.tickPeroidInSeconds; }
+                    () => { return this.value * fullFuelInputTemperatureDeltaPerSecond * LogicConstants.tickPeroidInSeconds; }
                     )
             );
             this.influencedParameters.Add(new ParameterInfluence(
                     ReactorParameterType.FuelAmount,
-                    () => { return -this.value * FullFuelInputConsumptionDeltaPerSecond * LogicConstants.tickPeroidInSeconds; ; }
+                    () => { return -this.value * fullFuelInputConsumptionDeltaPerSecond * LogicConstants.tickPeroidInSeconds; ; }
                     ) // - because more rod inputted => more fuel used
             );
         }

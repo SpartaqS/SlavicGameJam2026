@@ -157,7 +157,7 @@ public class Reactor : MonoBehaviour
             {
                 // TODO trigger failstate
                 // loss of control + animations + whatever
-                gameplayManager.HandleGameLoss(parameter.Type, parameter.WasTooHigh);
+                gameplayManager.HandleGameLoss(parameter.Type, parameter.WasTooHigh());
             }
         }
     }

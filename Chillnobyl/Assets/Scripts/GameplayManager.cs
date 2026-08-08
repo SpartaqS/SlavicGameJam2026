@@ -21,6 +21,10 @@ public class GameplayManager : MonoBehaviour
             // ignore repeated loss signals (first wins)
             return;
 
+        isGameOver = true;
+
+        Debug.LogWarning($"Debug msg: loss reason: {losingParam.ToString()} , wasTooHigh: {wasTooHigh}");
+
         string lossReasonText = GetLossReasonText(losingParam,wasTooHigh);
 
         lossScreen.SetText(lossReasonText);

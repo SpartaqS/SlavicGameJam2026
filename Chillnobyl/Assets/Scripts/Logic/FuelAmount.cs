@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class FuelAmount : ReactorParameter
 {
-    float minAllowedValue = 0f;  // BALANCEPARAM
+    readonly float minAllowedValue = 0f;  // BALANCEPARAM
 
-    public override void ApplyDelta(float delta)
-    {
-        base.ApplyDelta(delta);
-        value = Mathf.Clamp(value, minValue, maxValue);
-    }
     public FuelAmount(float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null)
     {
         type = ReactorParameterType.FuelAmount;
 
-        minValue = 0f;
-        maxValue = 100f;
+        minValue = -1f;
+        maxValue = 101f;
         if (value != null)
             this.value = value.Value;
         else
-            this.value = 3f;
+            this.value = 10f;
 
         if (defaultDeltaFunc != null)
             this.defaultDeltaFunc = defaultDeltaFunc;
@@ -31,7 +26,7 @@ public class FuelAmount : ReactorParameter
             this.hasFailed = hasFailed;
         else
         {
-            this.hasFailed = () => { return value <= minAllowedValue; };
+            this.hasFailed = WasTooLow;
         }
         if(influencedParameters != null)
             this.influencedParameters = influencedParameters;
@@ -39,5 +34,10 @@ public class FuelAmount : ReactorParameter
         {
             this.influencedParameters = null;
         }
+    }
+
+    public override bool WasTooLow()
+    {
+        return value <= minAllowedValue;
     }
 }
