@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4861986384499402444
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Editor::UnityEditor.Rendering.Universal.AssetVersion
-  version: 10
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,29 +7,32 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DitherMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 2cf1e244a0f0f0b438258b94b08e612c, type: 3}
+  m_Name: RetroDitterMat
+  m_Shader: {fileID: -6465566751694194690, guid: 3ba5fd4a5f3a1e644aa162cb71300b15, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses:
-  - MOTIONVECTORS
+  disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _BaseTexture:
-        m_Texture: {fileID: 2800000, guid: a2805309ed33cf64d84ae46faba75ae5, type: 3}
+    - _Dither:
+        m_Texture: {fileID: 2800000, guid: 178463f9c5a41f9449f90f32c32488f7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MainTexutre:
-        m_Texture: {fileID: 2800000, guid: 04ad4fa737e82694daa1d0a3f6d1c9a0, type: 3}
+    - _MainTex:
+        m_Texture: {fileID: 8400000, guid: 984bb04d84dc8934985beba92d38573e, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Palette:
+        m_Texture: {fileID: 2800000, guid: 23c5209b7e7407d44a7ae8856ce59423, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -59,10 +49,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColorResolution: 7.3
-    - _DitherSpread: 0.15
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    m_Colors: []
+    - _ColorMask: 15
+    - _DitherOpacity: 0.3
+    - _PaletteAmmount: 0.2
+    - _QuantizationLayouts: 32
+    - _SaturationLayouts: 1.79
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UIMaskSoftnessX: 1
+    - _UIMaskSoftnessY: 1
+    m_Colors:
+    - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

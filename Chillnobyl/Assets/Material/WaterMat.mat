@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: WaterMat
   m_Shader: {fileID: -6465566751694194690, guid: be817aaebb13dec4483ea790251ae726, type: 3}
-  m_Parent: {fileID: 0}
+  m_Parent: {fileID: 2100000, guid: 5008456e80bf4b446bcdd4cef17763ef, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -23,28 +23,12 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+    m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _Alfa: 0.62
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _Speed: 0.42
-    - _TopMask: 0.09
+    - _Alfa: 0.5
     m_Colors:
-    - _Color: {r: 0, g: 0.8889927, b: 0.9137466, a: 1}
+    - _Color: {r: 0, g: 0.65615416, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6580435663910751415
