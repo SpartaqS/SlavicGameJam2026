@@ -38,7 +38,7 @@ public class GameplayManager : MonoBehaviour
         {
             case ReactorParameterType.Temperature:
                 if(wasTooHigh)
-                    return "The reactor has overheated. Not cool!";
+                    return "The reactor has overheated due to lack of chill!";
                 else
                     return "The reactor has chilled out too much.";
 
