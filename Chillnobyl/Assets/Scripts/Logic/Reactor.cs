@@ -16,7 +16,7 @@ public class Reactor : MonoBehaviour
 
     [Header("Reactor parameters values - Game Designers/Balancers welcome")]
     [Header("Temperature")]
-    [SerializeField] float temperatureStartValue = 200f;
+    [SerializeField] float temperatureStartValue = 300f;
     [SerializeField] float minAllowedTemperature = 100f;
     [SerializeField] float maxAllowedTemperature = 100f;
     [SerializeField] float temperatureDeltaPerFullCoolantRPerSecond = -20f;
@@ -25,11 +25,11 @@ public class Reactor : MonoBehaviour
 
     [Header("Coolant")]
     [SerializeField] [Range(LogicConstants.minCoolantColorAmount, LogicConstants.maxCoolantColorAmount)] 
-    float coolantRStartValue = 128f;
+    float coolantRStartValue = 32f;
     [SerializeField] [Range(LogicConstants.minCoolantColorAmount, LogicConstants.maxCoolantColorAmount)] 
-    float coolantGStartValue = 128f;
+    float coolantGStartValue = 32f;
     [SerializeField] [Range(LogicConstants.minCoolantColorAmount, LogicConstants.maxCoolantColorAmount)] 
-    float coolantBStartValue = 128f;
+    float coolantBStartValue = 32f;
     [SerializeField] float coolantRDeltaPer100DPerSecond = -1f;
     [SerializeField] float coolantGDeltaPer100DPerSecond = -1f;
     [SerializeField] float coolantBDeltaPer100DPerSecond = -1f;

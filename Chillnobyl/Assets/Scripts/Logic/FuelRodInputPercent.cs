@@ -13,11 +13,11 @@ public class FuelRodInputPercent : ReactorParameter
         fullFuelInputTemperatureDeltaPerSecond = temperatureAndFuelUsageDeltas.x;
         fullFuelInputConsumptionDeltaPerSecond = temperatureAndFuelUsageDeltas.y;
         minValue = 0f;
-        maxValue = 1f;
+        maxValue = 100f;
         if (value != null)
             this.value = value.Value;
         else
-            this.value = 0.2f;
+            this.value = 20f;
 
         if (defaultDeltaFunc != null)
             this.defaultDeltaFunc = defaultDeltaFunc;
@@ -37,12 +37,12 @@ public class FuelRodInputPercent : ReactorParameter
             this.influencedParameters = new List<ParameterInfluence>();
             this.influencedParameters.Add(new ParameterInfluence(
                     ReactorParameterType.Temperature,
-                    () => { return this.value * fullFuelInputTemperatureDeltaPerSecond * LogicConstants.tickPeroidInSeconds; }
+                    () => { return this.value/100f * fullFuelInputTemperatureDeltaPerSecond * LogicConstants.tickPeroidInSeconds; }
                     )
             );
             this.influencedParameters.Add(new ParameterInfluence(
                     ReactorParameterType.FuelAmount,
-                    () => { return -this.value * fullFuelInputConsumptionDeltaPerSecond * LogicConstants.tickPeroidInSeconds; ; }
+                    () => { return -this.value/100f * fullFuelInputConsumptionDeltaPerSecond * LogicConstants.tickPeroidInSeconds; ; }
                     ) // - because more rod inputted => more fuel used
             );
         }
