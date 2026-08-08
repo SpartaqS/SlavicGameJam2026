@@ -129,10 +129,17 @@ public class Reactor : MonoBehaviour
         DebugPrintParameters();
         tickTimer = 0f;
     }
-
+    //bool initialized = false;
     // Update is called once per frame
     void Update()
     {// tick system here?
+        //if(!initialized)
+        //{
+        //    initialized = true;
+        //    InitializeReactorParameters();
+        //    DebugPrintParameters();
+        //}
+
         tickTimer += Time.deltaTime;
         if (tickTimer > tickPeroidInSeconds)
         {
@@ -206,7 +213,7 @@ public class Reactor : MonoBehaviour
     private void HandleParameterReachInterval(ReactorParameterType type, int newState)
     {
         Debug.Log($"Parameter: {type.ToString()} reached state: {newState}");
-        OnParameterReachInterval.Invoke(type, newState);
+        OnParameterReachInterval?.Invoke(type, newState);
     }
 
     private void CheckForFailure()

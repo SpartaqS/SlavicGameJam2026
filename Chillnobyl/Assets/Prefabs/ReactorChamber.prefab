@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2081905586811137433}
   - component: {fileID: 5797330586147715976}
   - component: {fileID: 7838781859229376780}
+  - component: {fileID: 389887246803983025}
   m_Layer: 0
   m_Name: Bubbles
   m_TagString: Untagged
@@ -4836,6 +4837,21 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
+--- !u!114 &389887246803983025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50331702086029074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3964afb1ab20ce745a2a92e59e4fb31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VFXController
+  parameterType: 0
+  statesWhenVisible: 01000000020000000300000004000000
+  vfxObject: {fileID: 50331702086029074}
 --- !u!1 &4474032482274908251
 GameObject:
   m_ObjectHideFlags: 0
@@ -4997,6 +5013,7 @@ GameObject:
   - component: {fileID: 2307917760258172684}
   - component: {fileID: 4477896252724552956}
   - component: {fileID: 3300524714041818039}
+  - component: {fileID: 5628775911125097543}
   m_Layer: 0
   m_Name: Smoke
   m_TagString: Untagged
@@ -9822,6 +9839,21 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
+--- !u!114 &5628775911125097543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5061365359859526838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3964afb1ab20ce745a2a92e59e4fb31e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VFXController
+  parameterType: 0
+  statesWhenVisible: 020000000300000004000000
+  vfxObject: {fileID: 5061365359859526838}
 --- !u!1 &7017106970288973094
 GameObject:
   m_ObjectHideFlags: 0
