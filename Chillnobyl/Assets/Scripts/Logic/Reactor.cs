@@ -14,6 +14,11 @@ public class Reactor : MonoBehaviour
     // TODO?
     //OnFail <reason>
 
+    [Header("Reactor parameters values")]
+    [SerializeField] float coolantRDeltaPer100DPerSecond = -1f;
+    [SerializeField] float coolantGDeltaPer100DPerSecond = -1f;
+    [SerializeField] float coolantBDeltaPer100DPerSecond = -1f;
+
     GameplayManager gameplayManager;
 
     public void ApplyOnClickDelta(ReactorParameterType parameterType, float delta)
@@ -46,12 +51,16 @@ public class Reactor : MonoBehaviour
 
         parameters = new List<ReactorParameter>();
 
-        ReactorParameter temperature = new Temperature();
+        Vector3 CoolantsRGBLossPer100D = new Vector3(coolantRDeltaPer100DPerSecond, coolantGDeltaPer100DPerSecond, coolantBDeltaPer100DPerSecond);
+
+        ReactorParameter temperature = new Temperature(CoolantsRGBLossPer100D);
         ReactorParameter fuelRodInputPercent = new FuelRodInputPercent();
         ReactorParameter fuelAmount = new FuelAmount();
+        ReactorParameter rediumAmount = new CoolantR();
         parameters.Add(temperature);
         parameters.Add(fuelRodInputPercent);
         parameters.Add(fuelAmount);
+        parameters.Add(rediumAmount);
 
         tickPeroidInSeconds = LogicConstants.tickPeroidInSeconds;
 
@@ -73,6 +82,7 @@ public class Reactor : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        DebugPrintParameters();
         tickTimer = 0f;
     }
 
@@ -141,6 +151,7 @@ public class Reactor : MonoBehaviour
             {
                 if(reactorParameter.Type == parameterType)
                 {
+                    Debug.Log($"Applying delta {sum} to {parameterType}");
                     reactorParameter.ApplyDelta(sum);
                     break;// should be only one parameter of each type
                 }

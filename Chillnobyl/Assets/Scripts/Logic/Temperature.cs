@@ -6,8 +6,15 @@ public class Temperature : ReactorParameter
 {
     readonly float minAllowedValue = 100f; // BALANCEPARAM
     readonly float maxAllowedValue = 1000f; // BALANCEPARAM
-    public Temperature(float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null)
+    readonly float coolantRDeltaPer100DPerSecond = -1f; // BALANCEPARAM
+    //readonly float coolantGDeltaPer100DPerSecond = -1f; // BALANCEPARAM
+    //readonly float coolantBDeltaPer100DPerSecond = -1f; // BALANCEPARAM
+
+    public Temperature(Vector3 coolantDeltaPer100DPerSecond, float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null)
     {
+        coolantRDeltaPer100DPerSecond = coolantDeltaPer100DPerSecond.x;
+        //coolantGDeltaPer100DPerSecond = coolantDeltaPer100DPerSecond.y;
+        //coolantBDeltaPer100DPerSecond = coolantDeltaPer100DPerSecond.z;
         type = ReactorParameterType.Temperature;
         minValue = 90f;
         maxValue = 1100f;
@@ -32,7 +39,12 @@ public class Temperature : ReactorParameter
             this.influencedParameters = influencedParameters;
         else
         {
-            this.influencedParameters = null;
+            this.influencedParameters = new List<ParameterInfluence>();
+            this.influencedParameters.Add(new ParameterInfluence(
+                    ReactorParameterType.CoolantR,
+                    () => { return this.value / 100f * coolantRDeltaPer100DPerSecond * LogicConstants.tickPeroidInSeconds; }
+                    )
+            );
         }
     }
 
