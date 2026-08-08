@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CoolantR : CoolantBase
 {
-    public CoolantR(float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null) : base(value, defaultDeltaFunc, hasFailed)
+    public CoolantR(float fullCoolantTemperatureDPS, float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null) : base(value, defaultDeltaFunc, hasFailed)
     {
-        float fullCoolantTemperatureDeltaPerSecond = -20f;
+        float fullCoolantTemperatureDeltaPerSecond = fullCoolantTemperatureDPS;
         type = ReactorParameterType.CoolantR;
         
         this.influencedParameters = new List<ParameterInfluence>();

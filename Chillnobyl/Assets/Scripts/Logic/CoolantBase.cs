@@ -9,8 +9,8 @@ public abstract class CoolantBase : ReactorParameter
     {
         type = ReactorParameterType.CoolantR;
 
-        minValue = 0f;
-        maxValue = 256f;
+        minValue = LogicConstants.minCoolantColorAmount;
+        maxValue = LogicConstants.maxCoolantColorAmount;
         if (value != null)
             this.value = value.Value;
         else

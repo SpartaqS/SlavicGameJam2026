@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class FuelRodInputPercent : ReactorParameter
 {
-    float fullFuelInputTemperatureDeltaPerSecond = 20f; // BALANCEPARAM
-    float fullFuelInputConsumptionDeltaPerSecond = 10f; // BALANCEPARAM
+    float fullFuelInputTemperatureDeltaPerSecond = 20f;
+    float fullFuelInputConsumptionDeltaPerSecond = 10f;
 
-    public FuelRodInputPercent(float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null)
+    public FuelRodInputPercent(Vector2 temperatureAndFuelUsageDeltas, float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null)
     {
         type = ReactorParameterType.FuelRodInputPercent;
-
+        fullFuelInputTemperatureDeltaPerSecond = temperatureAndFuelUsageDeltas.x;
+        fullFuelInputConsumptionDeltaPerSecond = temperatureAndFuelUsageDeltas.y;
         minValue = 0f;
         maxValue = 1f;
         if (value != null)

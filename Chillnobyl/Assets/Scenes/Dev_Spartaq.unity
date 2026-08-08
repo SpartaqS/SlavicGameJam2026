@@ -3388,6 +3388,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Reactor
   tickPeroidInSeconds: 1
   tickTimer: 0
+  temperatureStartValue: 200
+  minAllowedTemperature: 100
+  maxAllowedTemperature: 100
+  temperatureDeltaPerFullCoolantRPerSecond: -20
+  temperatureDeltaPerFullCoolantGPerSecond: -20
+  temperatureDeltaPerFullCoolantBPerSecond: -20
+  coolantRStartValue: 128
+  coolantGStartValue: 128
+  coolantBStartValue: 128
+  coolantRDeltaPer100DPerSecond: -1
+  coolantGDeltaPer100DPerSecond: -1
+  coolantBDeltaPer100DPerSecond: -1
+  startingFuelAmount: 10
+  fullFuelInputTemperatureDeltaPerSecond: 20
+  fullFuelInputConsumptionDeltaPerSecond: 10
 --- !u!1 &1702173805
 GameObject:
   m_ObjectHideFlags: 0
