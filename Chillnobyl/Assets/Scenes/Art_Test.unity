@@ -265,7 +265,7 @@ PrefabInstance:
     - target: {fileID: 6733563338333760991, guid: e8a3a10e523d1364dad61c97fe53642c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: da28acd73ab1567478bf8d691d2e29b3, type: 2}
+      objectReference: {fileID: 2100000, guid: 78ec1eb3182b1534a99ea25588422f88, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10461,7 +10461,7 @@ Transform:
   m_GameObject: {fileID: 1301925992}
   serializedVersion: 2
   m_LocalRotation: {x: -0.18437251, y: -0.02171782, z: 0.0417849, w: -0.9817276}
-  m_LocalPosition: {x: -349.02856, y: -109, z: -164.2}
+  m_LocalPosition: {x: -291, y: -109, z: -360}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
