@@ -17,6 +17,8 @@ public class VFXController : MonoBehaviour
         }
         else
             Debug.LogWarning($"{gameObject.name} has not found a Reactor to connect to its OnParameterReachInterval event!");
+
+        gameObject.SetActive(false); // by default disable
     }
 
     private void HandleParameterReachInterval(ReactorParameterType type, int newState)
