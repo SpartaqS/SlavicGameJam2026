@@ -35,7 +35,7 @@ public class FuelControl : MonoBehaviour, IParameterControlPanel, IBeginDragHand
         {
             return () =>
             {
-                Debug.Log("Delta on State in Fuel Control");
+                //Debug.Log("Delta on State in Fuel Control");
                 return 0f;
             };
         }

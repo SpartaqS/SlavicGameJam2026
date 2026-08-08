@@ -21,6 +21,10 @@ public class GameplayManager : MonoBehaviour
             // ignore repeated loss signals (first wins)
             return;
 
+        isGameOver = true;
+
+        Debug.LogWarning($"Debug msg: loss reason: {losingParam.ToString()} , wasTooHigh: {wasTooHigh}");
+
         string lossReasonText = GetLossReasonText(losingParam,wasTooHigh);
 
         lossScreen.SetText(lossReasonText);
@@ -34,7 +38,7 @@ public class GameplayManager : MonoBehaviour
         {
             case ReactorParameterType.Temperature:
                 if(wasTooHigh)
-                    return "The reactor has overheated. Not cool!";
+                    return "The reactor has overheated due to lack of chill!";
                 else
                     return "The reactor has chilled out too much.";
 

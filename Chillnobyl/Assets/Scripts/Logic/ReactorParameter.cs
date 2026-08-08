@@ -18,12 +18,13 @@ public abstract class ReactorParameter
     public virtual void ApplyDelta(float delta)
     {
         value += delta;
+        value = Mathf.Clamp(value, minValue, maxValue);
     }
     public Func<float> DefaultDeltaFunc { get => defaultDeltaFunc; }
-    public Func<bool> HasFailed { get => hasFailed; } // failValue
+    public Func<bool> HasFailed { get => hasFailed; }
 
-    public bool WasTooHigh { get => Value > maxValue; }
-    public bool WasTooLow { get => Value > minValue; }
+    public virtual bool WasTooHigh() { return false; }
+    public virtual bool WasTooLow() { return false; }
     public List<ParameterInfluence> InfluencedParameters { get => influencedParameters; }
     public ReactorParameterType Type { get => type; set => type = value; }
 }
@@ -48,6 +49,8 @@ public enum ReactorParameterType
     Temperature = 0,
     FuelRodInputPercent = 1,
     FuelAmount = 2,
-    //Coolant = 3,
-    //PowerOutput = 4
+    CoolantR = 3,
+    CoolantG = 4,
+    CoolantB = 5,
+    //PowerOutput = 6
 }

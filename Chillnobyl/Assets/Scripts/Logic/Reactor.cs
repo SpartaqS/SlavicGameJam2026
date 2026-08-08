@@ -14,6 +14,35 @@ public class Reactor : MonoBehaviour
     // TODO?
     //OnFail <reason>
 
+    [Header("Reactor parameters values - Game Designers/Balancers welcome")]
+    [Header("Temperature")]
+    [SerializeField] float temperatureStartValue = 300f;
+    [SerializeField] float minAllowedTemperature = 100f;
+    [SerializeField] float maxAllowedTemperature = 100f;
+    [SerializeField] float temperatureDeltaPerFullCoolantRPerSecond = -20f;
+    [SerializeField] float temperatureDeltaPerFullCoolantGPerSecond = -20f;
+    [SerializeField] float temperatureDeltaPerFullCoolantBPerSecond = -20f;
+
+    [Header("Coolant")]
+    [SerializeField] [Range(LogicConstants.minCoolantColorAmount, LogicConstants.maxCoolantColorAmount)] 
+    float coolantRStartValue = 32f;
+    [SerializeField] [Range(LogicConstants.minCoolantColorAmount, LogicConstants.maxCoolantColorAmount)] 
+    float coolantGStartValue = 32f;
+    [SerializeField] [Range(LogicConstants.minCoolantColorAmount, LogicConstants.maxCoolantColorAmount)] 
+    float coolantBStartValue = 32f;
+    [SerializeField] float coolantRDeltaPer100DPerSecond = -1f;
+    [SerializeField] float coolantGDeltaPer100DPerSecond = -1f;
+    [SerializeField] float coolantBDeltaPer100DPerSecond = -1f;
+
+    [Header("Fuel")]
+    [SerializeField] [Range(LogicConstants.minFuelAmount, LogicConstants.maxFuelAmount)]
+    float startingRodInputPercent = 10f;
+    [SerializeField] [Range(LogicConstants.minFuelAmount, LogicConstants.maxFuelAmount)] 
+    float startingFuelAmount = 10f;
+    [SerializeField] float fullFuelInputTemperatureDeltaPerSecond = 20f;
+    [SerializeField] float fullFuelInputConsumptionDeltaPerSecond = 10f;
+
+
     GameplayManager gameplayManager;
 
     public void ApplyOnClickDelta(ReactorParameterType parameterType, float delta)
@@ -40,18 +69,11 @@ public class Reactor : MonoBehaviour
         return null;
     }
 
-    private void Awake() //TODO move to scriptable objects or sth so it is editable outside of code?
+    private void Awake()
     {// Initialize Parameters and their relationships
         gameplayManager = FindFirstObjectByType<GameplayManager>();
 
-        parameters = new List<ReactorParameter>();
-
-        ReactorParameter temperature = new Temperature();
-        ReactorParameter fuelRodInputPercent = new FuelRodInputPercent();
-        ReactorParameter fuelAmount = new FuelAmount();
-        parameters.Add(temperature);
-        parameters.Add(fuelRodInputPercent);
-        parameters.Add(fuelAmount);
+        InitializeReactorParameters();
 
         tickPeroidInSeconds = LogicConstants.tickPeroidInSeconds;
 
@@ -70,9 +92,36 @@ public class Reactor : MonoBehaviour
             
     }
 
+    [ContextMenu("Set reactor parameters to config values")]
+    void InitializeReactorParameters()
+    {
+        parameters = new List<ReactorParameter>();
+
+        Vector3 CoolantsRGBLossPer100D = new Vector3(coolantRDeltaPer100DPerSecond, coolantGDeltaPer100DPerSecond, coolantBDeltaPer100DPerSecond);
+        Vector2 fuelRodDeltas = new Vector2(fullFuelInputTemperatureDeltaPerSecond, fullFuelInputConsumptionDeltaPerSecond);
+
+        ReactorParameter temperature = new Temperature(coolantDeltaPer100DPerSecond: CoolantsRGBLossPer100D, value: temperatureStartValue);
+        ReactorParameter fuelRodInputPercent = new FuelRodInputPercent(value: startingRodInputPercent, temperatureAndFuelUsageDeltas: fuelRodDeltas);
+        ReactorParameter fuelAmount = new FuelAmount(value: startingFuelAmount);
+        ReactorParameter coolantRAmount = new CoolantR(fullCoolantTemperatureDPS: temperatureDeltaPerFullCoolantRPerSecond,
+                                                        value: coolantRStartValue);
+        ReactorParameter coolantGAmount = new CoolantG(fullCoolantTemperatureDPS: temperatureDeltaPerFullCoolantGPerSecond,
+                                                        value: coolantGStartValue);
+        ReactorParameter coolantBAmount = new CoolantB(fullCoolantTemperatureDPS: temperatureDeltaPerFullCoolantBPerSecond,
+                                                        value: coolantBStartValue);
+
+        parameters.Add(temperature);
+        parameters.Add(fuelRodInputPercent);
+        parameters.Add(fuelAmount);
+        parameters.Add(coolantRAmount);
+        parameters.Add(coolantGAmount);
+        parameters.Add(coolantBAmount);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        DebugPrintParameters();
         tickTimer = 0f;
     }
 
@@ -141,6 +190,7 @@ public class Reactor : MonoBehaviour
             {
                 if(reactorParameter.Type == parameterType)
                 {
+                    Debug.Log($"Applying delta {sum} to {parameterType}");
                     reactorParameter.ApplyDelta(sum);
                     break;// should be only one parameter of each type
                 }
@@ -157,7 +207,7 @@ public class Reactor : MonoBehaviour
             {
                 // TODO trigger failstate
                 // loss of control + animations + whatever
-                gameplayManager.HandleGameLoss(parameter.Type, parameter.WasTooHigh);
+                gameplayManager.HandleGameLoss(parameter.Type, parameter.WasTooHigh());
             }
         }
     }

@@ -4,24 +4,20 @@ using UnityEngine;
 
 public class FuelRodInputPercent : ReactorParameter
 {
-    float FullFuelInputTemperatureDeltaPerSecond = 20f; // BALANCEPARAM
-    float FullFuelInputConsumptionDeltaPerSecond = 10f; // BALANCEPARAM
+    float fullFuelInputTemperatureDeltaPerSecond = 20f;
+    float fullFuelInputConsumptionDeltaPerSecond = 10f;
 
-    public override void ApplyDelta(float delta)
-    {
-        base.ApplyDelta(delta);
-        value = Mathf.Clamp(value, minValue, maxValue);
-    }
-    public FuelRodInputPercent(float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null)
+    public FuelRodInputPercent(Vector2 temperatureAndFuelUsageDeltas, float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null)
     {
         type = ReactorParameterType.FuelRodInputPercent;
-
+        fullFuelInputTemperatureDeltaPerSecond = temperatureAndFuelUsageDeltas.x;
+        fullFuelInputConsumptionDeltaPerSecond = temperatureAndFuelUsageDeltas.y;
         minValue = 0f;
-        maxValue = 1f;
+        maxValue = 100f;
         if (value != null)
             this.value = value.Value;
         else
-            this.value = 0.2f;
+            this.value = 20f;
 
         if (defaultDeltaFunc != null)
             this.defaultDeltaFunc = defaultDeltaFunc;
@@ -41,12 +37,12 @@ public class FuelRodInputPercent : ReactorParameter
             this.influencedParameters = new List<ParameterInfluence>();
             this.influencedParameters.Add(new ParameterInfluence(
                     ReactorParameterType.Temperature,
-                    () => { return this.value * FullFuelInputTemperatureDeltaPerSecond * LogicConstants.tickPeroidInSeconds; }
+                    () => { return this.value/100f * fullFuelInputTemperatureDeltaPerSecond * LogicConstants.tickPeroidInSeconds; }
                     )
             );
             this.influencedParameters.Add(new ParameterInfluence(
                     ReactorParameterType.FuelAmount,
-                    () => { return -this.value * FullFuelInputConsumptionDeltaPerSecond * LogicConstants.tickPeroidInSeconds; ; }
+                    () => { return -this.value/100f * fullFuelInputConsumptionDeltaPerSecond * LogicConstants.tickPeroidInSeconds; ; }
                     ) // - because more rod inputted => more fuel used
             );
         }
