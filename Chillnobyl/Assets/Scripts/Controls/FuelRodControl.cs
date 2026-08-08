@@ -7,6 +7,7 @@ public class FuelRodControl : MonoBehaviour, IParameterControlPanel, IPointerDow
     [SerializeField] private float fuelRodPerState = 0.1f;
     [SerializeField] private float pushDistance = 0.25f;
     [SerializeField] private float maxPushBackDistance = 0.025f;
+    [SerializeField] private Vector3 localPushDirection = Vector3.forward;
     private Reactor reactor = null;
 
     [SerializeField] private ReactorParameterType parameterType = ReactorParameterType.FuelRodInputPercent;
@@ -60,7 +61,7 @@ public class FuelRodControl : MonoBehaviour, IParameterControlPanel, IPointerDow
     public void OnPointerDown(PointerEventData eventData)
     {
         pressed = true;
-        transform.position += Vector3.forward * pushDistance;
+        transform.localPosition += localPushDirection.normalized * pushDistance;
     }
 
     public void OnPointerUp(PointerEventData eventData)
