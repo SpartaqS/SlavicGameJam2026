@@ -57,10 +57,15 @@ public class Reactor : MonoBehaviour
         ReactorParameter fuelRodInputPercent = new FuelRodInputPercent();
         ReactorParameter fuelAmount = new FuelAmount();
         ReactorParameter rediumAmount = new CoolantR();
+        ReactorParameter greeniumAmount = new CoolantG();
+        ReactorParameter blueniumAmount = new CoolantB();
+
         parameters.Add(temperature);
         parameters.Add(fuelRodInputPercent);
         parameters.Add(fuelAmount);
         parameters.Add(rediumAmount);
+        parameters.Add(greeniumAmount);
+        parameters.Add(blueniumAmount);
 
         tickPeroidInSeconds = LogicConstants.tickPeroidInSeconds;
 
