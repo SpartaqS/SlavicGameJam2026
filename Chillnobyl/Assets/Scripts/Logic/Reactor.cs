@@ -75,6 +75,7 @@ public class Reactor : MonoBehaviour
 
     private void Awake()
     {
+        enabled = false; // so game does not start until player is ready
         // Initialize all event connections
         gameplayManager = FindFirstObjectByType<GameplayManager>();
 
@@ -129,17 +130,9 @@ public class Reactor : MonoBehaviour
         DebugPrintParameters();
         tickTimer = 0f;
     }
-    //bool initialized = false;
     // Update is called once per frame
     void Update()
-    {// tick system here?
-        //if(!initialized)
-        //{
-        //    initialized = true;
-        //    InitializeReactorParameters();
-        //    DebugPrintParameters();
-        //}
-
+    {
         tickTimer += Time.deltaTime;
         if (tickTimer > tickPeroidInSeconds)
         {

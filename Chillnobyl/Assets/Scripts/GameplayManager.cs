@@ -1,13 +1,48 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameplayManager : MonoBehaviour
 {
     [SerializeField] LossScreen lossScreen;
     bool isGameOver = false;
+    [SerializeField] Reactor reactor;
+    [SerializeField] GameObject pressToStartScreen;
+    [SerializeField] GameObject loadingScreen;
 
     private void Awake()
     {
         lossScreen.SetVisibility(false);
+        reactor = FindFirstObjectByType<Reactor>();
+        if (pressToStartScreen == null)
+            throw new System.Exception("Missing pressToStartScreen");
+
+        if (loadingScreen == null)
+            throw new System.Exception("Missing loadingScreen");
+
+
+        loadingScreen.SetActive(true);
+        pressToStartScreen.SetActive(false);
+    }
+
+    bool playerChoseToStart = false;
+
+    private void Update()
+    {
+        // loading screen no longer needed (all stuff loaded in Awake(), Start() player can start with no lagspike)
+        //switch to "press to start screen"
+        pressToStartScreen.SetActive(true);
+        loadingScreen.SetActive(false);
+
+        if (playerChoseToStart)
+            return;
+
+        // start game when player choses to
+        if (Keyboard.current.anyKey.wasPressedThisFrame)
+        {
+            pressToStartScreen.SetActive(false);
+            enabled = false; /// turn off this logic
+            reactor.enabled = true;
+        }
     }
 
     public void HandleGameLoss(ReactorParameterType losingParam, bool wasTooHigh)
@@ -22,6 +57,7 @@ public class GameplayManager : MonoBehaviour
             return;
 
         isGameOver = true;
+        enabled = false;
 
         Debug.LogWarning($"Debug msg: loss reason: {losingParam.ToString()} , wasTooHigh: {wasTooHigh}");
 
