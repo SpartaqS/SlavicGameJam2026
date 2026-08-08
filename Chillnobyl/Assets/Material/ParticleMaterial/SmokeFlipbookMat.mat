@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RediumMat
-  m_Shader: {fileID: -6465566751694194690, guid: be817aaebb13dec4483ea790251ae726, type: 3}
+  m_Name: SmokeFlipbookMat
+  m_Shader: {fileID: -6465566751694194690, guid: a530698b5cbd72f43aea6668f3ee3540, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -24,6 +24,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Base_Map:
+        m_Texture: {fileID: 2800000, guid: 7503887c5d6ea694d84ad8f50474a3ad, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -38,16 +42,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alfa: 0.25
+    - _Float: 6
+    - _Height: 6
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Speed: 0.42
-    - _TopMask: 0.09
-    m_Colors:
-    - _Color: {r: 1, g: 0.0042480472, b: 0, a: 1}
+    - _TileSpeed: 10
+    - _Tiling: 1
+    - _Width: 6
+    m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &6580435663910751415
+--- !u!114 &5919250127427412009
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaterMat
+  m_Name: ChillingFluid
   m_Shader: {fileID: -6465566751694194690, guid: be817aaebb13dec4483ea790251ae726, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -16,7 +16,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2996
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
@@ -38,16 +38,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alfa: 0.2
+    - _Alfa: 0.35
     - _QueueControl: 0
-    - _QueueOffset: 0
-    - _Speed: 0.06
-    - _TopMask: 0.09
+    - _QueueOffset: -4
+    - _Speed: 1
+    - _TopMask: 0.05
     m_Colors:
-    - _Color: {r: 0, g: 0.65615416, b: 1, a: 1}
+    - _Color: {r: 1, g: 0.09750109, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &6580435663910751415
+--- !u!114 &4232928923797596808
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

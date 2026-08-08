@@ -1455,19 +1455,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2307917760258172684, guid: e8a3a10e523d1364dad61c97fe53642c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.8
+      value: 3.29
       objectReference: {fileID: 0}
     - target: {fileID: 2307917760258172684, guid: e8a3a10e523d1364dad61c97fe53642c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.8
+      value: 3.29
       objectReference: {fileID: 0}
     - target: {fileID: 2307917760258172684, guid: e8a3a10e523d1364dad61c97fe53642c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4.8
+      value: 3.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477896252724552956, guid: e8a3a10e523d1364dad61c97fe53642c, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477896252724552956, guid: e8a3a10e523d1364dad61c97fe53642c, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4477896252724552956, guid: e8a3a10e523d1364dad61c97fe53642c, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4803618466788712796, guid: e8a3a10e523d1364dad61c97fe53642c, type: 3}
       propertyPath: m_Name
       value: ReactorChamber
+      objectReference: {fileID: 0}
+    - target: {fileID: 5061365359859526838, guid: e8a3a10e523d1364dad61c97fe53642c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
