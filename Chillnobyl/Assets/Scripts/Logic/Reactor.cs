@@ -75,7 +75,6 @@ public class Reactor : MonoBehaviour
 
     private void Awake()
     {
-        enabled = false; // so game does not start until player is ready
         // Initialize all event connections
         gameplayManager = FindFirstObjectByType<GameplayManager>();
 
@@ -129,6 +128,7 @@ public class Reactor : MonoBehaviour
         InitializeReactorParameters();
         DebugPrintParameters();
         tickTimer = 0f;
+        enabled = false; // so game does not start until player is ready
     }
     // Update is called once per frame
     void Update()
