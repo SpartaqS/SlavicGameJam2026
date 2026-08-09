@@ -7435,6 +7435,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 23cf191b-4253-461f-b089-99d2134ffaeb
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6834022805182805510}
+        m_TargetAssemblyTypeName: ResetScene, Assembly-CSharp
+        m_MethodName: OnResetScene
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1a51b99e-6b8e-492f-b915-49c08b761daa
+    m_ActionName: 'Player/ResetGame[/Keyboard/u]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -9083,6 +9099,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a4c85ee4c2afa943879b2909455855b, type: 3}
+--- !u!114 &6834022805182805510 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4257548857936413849, guid: 8a4c85ee4c2afa943879b2909455855b, type: 3}
+  m_PrefabInstance: {fileID: 6834022805182805509}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8903a821761db6645bdda06c73ca769b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResetScene
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

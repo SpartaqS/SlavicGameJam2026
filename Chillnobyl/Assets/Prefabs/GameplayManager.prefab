@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7727065253054261922}
   - component: {fileID: 8438010577439249894}
   - component: {fileID: 7787109314958310576}
+  - component: {fileID: 4257548857936413849}
   - component: {fileID: 4194144155665369894}
   m_Layer: 0
   m_Name: GameplayManager
@@ -89,6 +90,18 @@ MonoBehaviour:
   audioClipArray:
   - audio: 0
     audioClip: {fileID: 8300000, guid: 2c90b5f4b966a7d4f921d7c89a10b546, type: 3}
+--- !u!114 &4257548857936413849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8501819226848950333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8903a821761db6645bdda06c73ca769b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResetScene
 --- !u!82 &4194144155665369894
 AudioSource:
   m_ObjectHideFlags: 0
