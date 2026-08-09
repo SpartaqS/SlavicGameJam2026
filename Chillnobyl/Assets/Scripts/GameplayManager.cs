@@ -58,6 +58,7 @@ public class GameplayManager : MonoBehaviour
 
         isGameOver = true;
         enabled = false;
+        reactor.enabled = false;
 
         Debug.LogWarning($"Debug msg: loss reason: {losingParam.ToString()} , wasTooHigh: {wasTooHigh}");
 
@@ -79,7 +80,7 @@ public class GameplayManager : MonoBehaviour
                     return "The reactor has chilled out too much.";
 
             default:
-                return $"Generic loss reason. Bully the devs to make a proper one for this combo: {losingParam.ToString()} , wasTooHigh: {wasTooHigh}";
+                return $"Generic loss reason. \r\nBully the devs to make a proper one \r\nfor this combo: {losingParam.ToString()} , \r\nwasTooHigh: {wasTooHigh}";
         }
     }
 }
