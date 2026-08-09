@@ -67,7 +67,7 @@ MonoBehaviour:
   musicPlaylist: 00000000
   audioClipArray:
   - audio: 0
-    audioClip: {fileID: 8300000, guid: 25d374bee7504e44794d137fa1de951e, type: 3}
+    audioClip: {fileID: 8300000, guid: 2c90b5f4b966a7d4f921d7c89a10b546, type: 3}
 --- !u!114 &1579722932389703903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +102,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
