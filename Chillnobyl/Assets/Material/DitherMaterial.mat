@@ -37,6 +37,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BaseTexture:
+        m_Texture: {fileID: 2800000, guid: a2805309ed33cf64d84ae46faba75ae5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTexutre:
         m_Texture: {fileID: 2800000, guid: 04ad4fa737e82694daa1d0a3f6d1c9a0, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -55,8 +59,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColorResolution: 8
-    - _DitherSpread: 0.1
+    - _ColorResolution: 7.3
+    - _DitherSpread: 0.15
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors: []

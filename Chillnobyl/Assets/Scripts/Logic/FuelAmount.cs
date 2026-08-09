@@ -1,26 +1,16 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FuelAmount : ReactorParameter
 {
-    float minAllowedValue = 0f;  // BALANCEPARAM
+    readonly float minAllowedValue = 0f;  // BALANCEPARAM
 
-    public override void ApplyDelta(float delta)
+    public FuelAmount(UnityAction<ReactorParameterType, int> intervalReachHandler, float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null, List<float> stateTresholds = null) : base(type: ReactorParameterType.FuelAmount, intervalReachHandler, value, stateTresholds)
     {
-        base.ApplyDelta(delta);
-        value = Mathf.Clamp(value, minValue, maxValue);
-    }
-    public FuelAmount(float? value = null, Func<float> defaultDeltaFunc = null, Func<bool> hasFailed = null, List<ParameterInfluence> influencedParameters = null)
-    {
-        type = ReactorParameterType.FuelAmount;
-
-        minValue = 0f;
-        maxValue = 100f;
-        if (value != null)
-            this.value = value.Value;
-        else
-            this.value = 3f;
+        minValue = LogicConstants.minFuelAmount;
+        maxValue = LogicConstants.maxFuelAmount;
 
         if (defaultDeltaFunc != null)
             this.defaultDeltaFunc = defaultDeltaFunc;
@@ -31,7 +21,7 @@ public class FuelAmount : ReactorParameter
             this.hasFailed = hasFailed;
         else
         {
-            this.hasFailed = () => { return value <= minAllowedValue; };
+            this.hasFailed = WasTooLow;
         }
         if(influencedParameters != null)
             this.influencedParameters = influencedParameters;
@@ -39,5 +29,10 @@ public class FuelAmount : ReactorParameter
         {
             this.influencedParameters = null;
         }
+    }
+
+    public override bool WasTooLow()
+    {
+        return value <= minAllowedValue;
     }
 }
