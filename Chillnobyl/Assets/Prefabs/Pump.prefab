@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f91d85d809aad9f40b4ebb912bfa9b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FuelControl
-  fuelPerPumpDistance: 200
+  fuelPerPumpDistance: 40
   moveClamp: {x: 0.877, y: 1.581383}
   parameterType: 2
   localAudioSourceManager: {fileID: 8048295618920563722}

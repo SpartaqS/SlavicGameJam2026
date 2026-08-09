@@ -1895,10 +1895,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7469252812232694146, guid: 77f2f722a22041f48bd2a65d56ebcf74, type: 3}
-      propertyPath: fuelPerPumpDistance
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
