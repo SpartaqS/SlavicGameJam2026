@@ -152,7 +152,7 @@ RectTransform:
   m_Father: {fileID: 1617786411}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -965,7 +965,7 @@ RectTransform:
   m_Father: {fileID: 1187363738}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1045,7 +1045,7 @@ RectTransform:
   m_Father: {fileID: 1708195795}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1650,6 +1650,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 515242974356877054, guid: 67803d72b1e38564684648f9f94cb02b, type: 3}
   m_PrefabInstance: {fileID: 343565818}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &400142186
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 0e34198c93c43d9448da854dbe4d9687, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -72.726
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e34198c93c43d9448da854dbe4d9687, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 67.72164
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e34198c93c43d9448da854dbe4d9687, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 67.72164
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e34198c93c43d9448da854dbe4d9687, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.8267856
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e34198c93c43d9448da854dbe4d9687, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.988
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e34198c93c43d9448da854dbe4d9687, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.335
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e34198c93c43d9448da854dbe4d9687, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e34198c93c43d9448da854dbe4d9687, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e34198c93c43d9448da854dbe4d9687, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.92713815
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e34198c93c43d9448da854dbe4d9687, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.37471983
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e34198c93c43d9448da854dbe4d9687, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 224.014
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e34198c93c43d9448da854dbe4d9687, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0e34198c93c43d9448da854dbe4d9687, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0e34198c93c43d9448da854dbe4d9687, type: 3}
+      propertyPath: m_Name
+      value: gaiger
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0e34198c93c43d9448da854dbe4d9687, type: 3}
 --- !u!1 &404891422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,7 +1897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7469252812232694146, guid: 77f2f722a22041f48bd2a65d56ebcf74, type: 3}
       propertyPath: fuelPerPumpDistance
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1942,7 +2011,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &415155533
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2855,7 +2924,7 @@ RectTransform:
   m_Father: {fileID: 846758521}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3721,7 +3790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &740950164
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3822,7 +3891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 557539931544691986, guid: 11827b308226ab5499dc1d857d1736ca, type: 3}
       propertyPath: addedAtEnd
-      value: '%'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 557539931544691986, guid: 11827b308226ab5499dc1d857d1736ca, type: 3}
       propertyPath: showMaxText
@@ -4291,10 +4360,22 @@ PrefabInstance:
       propertyPath: maxDragDistance
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2890496793532095505, guid: 294e4f9911f9d2745b8e36cc5a6894bf, type: 3}
+      propertyPath: coolantPerDistancePerState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973338543339300033, guid: 294e4f9911f9d2745b8e36cc5a6894bf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 14255d40438a4f846a993a39bea6ad83, type: 2}
     - target: {fileID: 6328355408269426743, guid: 294e4f9911f9d2745b8e36cc5a6894bf, type: 3}
       propertyPath: m_Name
       value: Color Lever (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7494094009404110773, guid: 294e4f9911f9d2745b8e36cc5a6894bf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 059e5dbe8e99aff4b922b564fe576be0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4728,7 +4809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 557539931544691986, guid: 11827b308226ab5499dc1d857d1736ca, type: 3}
       propertyPath: addedAtEnd
-      value: '%'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 557539931544691986, guid: 11827b308226ab5499dc1d857d1736ca, type: 3}
       propertyPath: showMaxText
@@ -5030,10 +5111,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 557539931544691986, guid: 11827b308226ab5499dc1d857d1736ca, type: 3}
       propertyPath: showMaxText
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 557539931544691986, guid: 11827b308226ab5499dc1d857d1736ca, type: 3}
       propertyPath: showMinText
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 557539931544691986, guid: 11827b308226ab5499dc1d857d1736ca, type: 3}
+      propertyPath: maxTextColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 557539931544691986, guid: 11827b308226ab5499dc1d857d1736ca, type: 3}
+      propertyPath: maxTextColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 557539931544691986, guid: 11827b308226ab5499dc1d857d1736ca, type: 3}
+      propertyPath: maxTextColor.r
+      value: 0.32651007
+      objectReference: {fileID: 0}
+    - target: {fileID: 557539931544691986, guid: 11827b308226ab5499dc1d857d1736ca, type: 3}
+      propertyPath: minTextColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 557539931544691986, guid: 11827b308226ab5499dc1d857d1736ca, type: 3}
+      propertyPath: minTextColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 557539931544691986, guid: 11827b308226ab5499dc1d857d1736ca, type: 3}
+      propertyPath: minTextColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 557539931544691986, guid: 11827b308226ab5499dc1d857d1736ca, type: 3}
+      propertyPath: mainTextColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 557539931544691986, guid: 11827b308226ab5499dc1d857d1736ca, type: 3}
+      propertyPath: mainTextColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 557539931544691986, guid: 11827b308226ab5499dc1d857d1736ca, type: 3}
+      propertyPath: mainTextColor.r
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4471539547822436247, guid: 11827b308226ab5499dc1d857d1736ca, type: 3}
@@ -5273,7 +5390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 557539931544691986, guid: 11827b308226ab5499dc1d857d1736ca, type: 3}
       propertyPath: addedAtEnd
-      value: '%'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 557539931544691986, guid: 11827b308226ab5499dc1d857d1736ca, type: 3}
       propertyPath: showMaxText
@@ -5559,10 +5676,22 @@ PrefabInstance:
       propertyPath: maxDragDistance
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2890496793532095505, guid: 294e4f9911f9d2745b8e36cc5a6894bf, type: 3}
+      propertyPath: coolantPerDistancePerState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973338543339300033, guid: 294e4f9911f9d2745b8e36cc5a6894bf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 770d25adfa6a4d04cafe8f2ce90fc2b8, type: 2}
     - target: {fileID: 6328355408269426743, guid: 294e4f9911f9d2745b8e36cc5a6894bf, type: 3}
       propertyPath: m_Name
       value: Color Lever
       objectReference: {fileID: 0}
+    - target: {fileID: 7494094009404110773, guid: 294e4f9911f9d2745b8e36cc5a6894bf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 059e5dbe8e99aff4b922b564fe576be0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6299,7 +6428,7 @@ RectTransform:
   m_Father: {fileID: 895767252}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6627,7 +6756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1542539615
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6767,7 +6896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1630340277
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7202,7 +7331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1712027687
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8304,10 +8433,22 @@ PrefabInstance:
       propertyPath: maxDragDistance
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2890496793532095505, guid: 294e4f9911f9d2745b8e36cc5a6894bf, type: 3}
+      propertyPath: coolantPerDistancePerState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973338543339300033, guid: 294e4f9911f9d2745b8e36cc5a6894bf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 54448007d747f224ab24e9771ad7e24e, type: 2}
     - target: {fileID: 6328355408269426743, guid: 294e4f9911f9d2745b8e36cc5a6894bf, type: 3}
       propertyPath: m_Name
       value: Color Lever (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7494094009404110773, guid: 294e4f9911f9d2745b8e36cc5a6894bf, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 059e5dbe8e99aff4b922b564fe576be0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8566,7 +8707,7 @@ RectTransform:
   m_Father: {fileID: 1794208948}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8737,7 +8878,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2115444807
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9256,3 +9397,4 @@ SceneRoots:
   - {fileID: 746600590}
   - {fileID: 987054483}
   - {fileID: 95255896}
+  - {fileID: 400142186}
