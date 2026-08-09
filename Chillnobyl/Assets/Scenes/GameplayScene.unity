@@ -6428,7 +6428,7 @@ RectTransform:
   m_Father: {fileID: 895767252}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7048,9 +7048,11 @@ MonoBehaviour:
   coolantGDeltaPer100DPerSecond: -1
   coolantBDeltaPer100DPerSecond: -1
   startingRodInputPercent: 10
-  startingFuelAmount: 10
+  startingFuelAmount: 25
   fullFuelInputTemperatureDeltaPerSecond: 20
   fullFuelInputConsumptionDeltaPerSecond: 10
+  fuelTresholds:
+  - 15
   OnParameterReachInterval:
     m_PersistentCalls:
       m_Calls: []
@@ -8878,7 +8880,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2115444807
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9312,6 +9314,18 @@ PrefabInstance:
       objectReference: {fileID: 661565974}
     - target: {fileID: 7787109314958310576, guid: 8a4c85ee4c2afa943879b2909455855b, type: 3}
       propertyPath: audioClipArray.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e3848ef29967817498da31301fb9a8f6, type: 3}
+    - target: {fileID: 8438010577439249894, guid: 8a4c85ee4c2afa943879b2909455855b, type: 3}
+      propertyPath: audioClipArray.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438010577439249894, guid: 8a4c85ee4c2afa943879b2909455855b, type: 3}
+      propertyPath: audioClipArray.Array.data[4].audio
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438010577439249894, guid: 8a4c85ee4c2afa943879b2909455855b, type: 3}
+      propertyPath: audioClipArray.Array.data[4].audioClip
       value: 
       objectReference: {fileID: 8300000, guid: e3848ef29967817498da31301fb9a8f6, type: 3}
     - target: {fileID: 8501819226848950333, guid: 8a4c85ee4c2afa943879b2909455855b, type: 3}

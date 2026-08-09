@@ -44,6 +44,7 @@ public class Reactor : MonoBehaviour
     float startingFuelAmount = 10f;
     [SerializeField] float fullFuelInputTemperatureDeltaPerSecond = 20f;
     [SerializeField] float fullFuelInputConsumptionDeltaPerSecond = 10f;
+    [SerializeField] List<float> fuelTresholds;
 
 
     GameplayManager gameplayManager;
@@ -105,7 +106,7 @@ public class Reactor : MonoBehaviour
 
         ReactorParameter temperature = new Temperature(HandleParameterReachInterval, coolantDeltaPer100DPerSecond: CoolantsRGBLossPer100D, value: temperatureStartValue, stateTresholds: temperatureTresholds);
         ReactorParameter fuelRodInputPercent = new FuelRodInputPercent(HandleParameterReachInterval, value: startingRodInputPercent, temperatureAndFuelUsageDeltas: fuelRodDeltas);
-        ReactorParameter fuelAmount = new FuelAmount(HandleParameterReachInterval, value: startingFuelAmount);
+        ReactorParameter fuelAmount = new FuelAmount(HandleParameterReachInterval, value: startingFuelAmount, stateTresholds: fuelTresholds);
         ReactorParameter coolantRAmount = new CoolantR(HandleParameterReachInterval, fullCoolantTemperatureDPS: temperatureDeltaPerFullCoolantRPerSecond,
                                                         value: coolantRStartValue);
         ReactorParameter coolantGAmount = new CoolantG(HandleParameterReachInterval, fullCoolantTemperatureDPS: temperatureDeltaPerFullCoolantGPerSecond,
