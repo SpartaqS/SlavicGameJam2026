@@ -4863,6 +4863,7 @@ GameObject:
   - component: {fileID: 5370307727426567600}
   - component: {fileID: 4824006505346749598}
   - component: {fileID: 5943166647023587153}
+  - component: {fileID: 7344645921411520492}
   - component: {fileID: 1471180760330039340}
   m_Layer: 0
   m_Name: Cylinder
@@ -4943,6 +4944,23 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7344645921411520492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4474032482274908251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f50d1f5e0f3feed4aab41682adcf0016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChillDisplay
+  parameterTypeR: 3
+  parameterTypeG: 4
+  parameterTypeB: 5
+  readOnlyDebugColor: {r: 0, g: 0, b: 0, a: 0}
+  alpha: 1
 --- !u!136 &1471180760330039340
 CapsuleCollider:
   m_ObjectHideFlags: 0
