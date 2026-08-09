@@ -14,6 +14,7 @@ public class FuelControl : MonoBehaviour, IParameterControlPanel, IBeginDragHand
 
     private bool dragging = false;
     private Camera mainCamera = null;
+    [SerializeField] LocalAudioSourceManager localAudioSourceManager;
 
     public bool isMalfunctioning { get; private set; }
 
@@ -82,6 +83,7 @@ public class FuelControl : MonoBehaviour, IParameterControlPanel, IBeginDragHand
 
                 Debug.Log($"Pumped {pumpAmount} fuel...");
                 reactor.ApplyOnClickDelta(parameterType, pumpAmount);
+                SoundManager._Instance.PlaySound(localAudioSourceManager.audioSource, SoundManager.Sound.Pump);
             }
         }
     }
@@ -89,6 +91,7 @@ public class FuelControl : MonoBehaviour, IParameterControlPanel, IBeginDragHand
     public void OnEndDrag(PointerEventData eventData)
     {
         dragging = false;
+        SoundManager._Instance.StopSound(localAudioSourceManager.audioSource);
     }
 
     public ReactorParameterType controlledParameterType => ReactorParameterType.FuelRodInputPercent;
