@@ -78,6 +78,8 @@ public class GameplayManager : MonoBehaviour
                     return "The reactor has overheated due to lack of chill!";
                 else
                     return "The reactor has chilled out too much.";
+            case ReactorParameterType.FuelAmount:
+                return "The reactor has chillingly ran out of fuel";
 
             default:
                 return $"Generic loss reason. \r\nBully the devs to make a proper one \r\nfor this combo: {losingParam.ToString()} , \r\nwasTooHigh: {wasTooHigh}";
