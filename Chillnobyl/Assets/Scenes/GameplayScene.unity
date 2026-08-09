@@ -9090,6 +9090,10 @@ PrefabInstance:
       propertyPath: pressToStartScreen
       value: 
       objectReference: {fileID: 661565974}
+    - target: {fileID: 7787109314958310576, guid: 8a4c85ee4c2afa943879b2909455855b, type: 3}
+      propertyPath: audioClipArray.Array.data[0].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e3848ef29967817498da31301fb9a8f6, type: 3}
     - target: {fileID: 8501819226848950333, guid: 8a4c85ee4c2afa943879b2909455855b, type: 3}
       propertyPath: m_Name
       value: GameplayManager
