@@ -75,7 +75,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7351281286387523270}
-  m_Mesh: {fileID: 4001860509763752363, guid: 0106b551365496348956d026dd4f3db4, type: 3}
+  m_Mesh: {fileID: 4001860509763752363, guid: 736e1709794e279418fa8b933c18bf69, type: 3}
 --- !u!23 &6213002752096295485
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -101,7 +101,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: bb3b39f0ffd34574698b6ef5befbbd54, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f91d85d809aad9f40b4ebb912bfa9b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FuelControl
-  fuelPerPumpDistance: 1
+  fuelPerPumpDistance: 200
   moveClamp: {x: 0.877, y: 1.581383}
   parameterType: 2
 --- !u!65 &8986996196687051892
@@ -201,7 +201,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9102923639249989044}
-  m_Mesh: {fileID: -7644588182284127562, guid: 0106b551365496348956d026dd4f3db4, type: 3}
+  m_Mesh: {fileID: -7644588182284127562, guid: 736e1709794e279418fa8b933c18bf69, type: 3}
 --- !u!23 &6625798586388158811
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 1d9370dc26c49434fa7b5830b855bf79, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
