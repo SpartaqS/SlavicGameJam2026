@@ -18,6 +18,9 @@ public class FuelControl : MonoBehaviour, IParameterControlPanel, IBeginDragHand
 
     public bool isMalfunctioning { get; private set; }
 
+    [Header("SFX - to control the sound of the pump")]
+    [SerializeField] float pitchDiv = 2;
+
     public Func<float> deltaOnClick
     {
         get
@@ -83,7 +86,12 @@ public class FuelControl : MonoBehaviour, IParameterControlPanel, IBeginDragHand
 
                 Debug.Log($"Pumped {pumpAmount} fuel...");
                 reactor.ApplyOnClickDelta(parameterType, pumpAmount);
-                SoundManager._Instance.PlaySound(localAudioSourceManager.audioSource, SoundManager.Sound.Pump);
+                localAudioSourceManager.SetPitch(distance/pitchDiv);
+                localAudioSourceManager.PlayInLoop(SoundManager.Sound.Pump);
+            }
+            else
+            {
+                localAudioSourceManager.StopSound();
             }
         }
     }
@@ -91,7 +99,7 @@ public class FuelControl : MonoBehaviour, IParameterControlPanel, IBeginDragHand
     public void OnEndDrag(PointerEventData eventData)
     {
         dragging = false;
-        SoundManager._Instance.StopSound(localAudioSourceManager.audioSource);
+        localAudioSourceManager.StopSound();
     }
 
     public ReactorParameterType controlledParameterType => ReactorParameterType.FuelRodInputPercent;

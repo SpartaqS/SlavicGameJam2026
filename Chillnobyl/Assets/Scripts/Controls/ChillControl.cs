@@ -21,7 +21,7 @@ public class ChillControl : MonoBehaviour, IParameterControlPanel, IBeginDragHan
 
     private Plane draggingPlane;
     private Camera mainCamera = null;
-
+    [SerializeField] LocalAudioSourceManager localAudioSourceManager;
     public ReactorParameterType controlledParameterType => parameterType;
 
     public bool isMalfunctioning { get; set; }
@@ -45,6 +45,19 @@ public class ChillControl : MonoBehaviour, IParameterControlPanel, IBeginDragHan
             return () =>
             {
                 float currentAngle = (leverBase.localRotation.eulerAngles.x + Mathf.Abs(minAngle)) % 360;
+                if(currentAngle > minAngle + Mathf.Abs(minAngle))
+                {
+                    float soundVolume = Mathf.InverseLerp(minAngle + Mathf.Abs(minAngle), maxAngle + Mathf.Abs(minAngle), currentAngle);
+                    localAudioSourceManager.SetVolume(soundVolume);
+                    localAudioSourceManager.PlayInLoop(SoundManager.Sound.ChillFaucet);
+                    // play currentAngle/(minAngle + Mathf.Abs(minAngle))
+
+                }
+                else
+                {
+                    //stop
+                    localAudioSourceManager.StopSound();
+                }
                 return currentAngle > minAngle + Mathf.Abs(minAngle) ? Mathf.InverseLerp(minAngle + Mathf.Abs(minAngle), maxAngle + Mathf.Abs(minAngle), currentAngle) * coolantPerDistancePerState : 0f;
             };
         }

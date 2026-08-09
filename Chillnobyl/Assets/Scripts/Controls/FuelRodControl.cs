@@ -64,13 +64,13 @@ public class FuelRodControl : MonoBehaviour, IParameterControlPanel, IPointerDow
     {
         pressed = true;
         transform.localPosition += localPushDirection.normalized * pushDistance;
-        SoundManager._Instance.PlaySound(localAudioSourceManager.audioSource, SoundManager.Sound.ButtonDown);
+        localAudioSourceManager.PlayOneShot(SoundManager.Sound.ButtonDown);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         pressed = false;
-        SoundManager._Instance.PlaySound(localAudioSourceManager.audioSource, SoundManager.Sound.ButtonUp);
+        localAudioSourceManager.PlayOneShot(SoundManager.Sound.ButtonUp);
     }
 
     public ReactorParameterType controlledParameterType => ReactorParameterType.FuelRodInputPercent;

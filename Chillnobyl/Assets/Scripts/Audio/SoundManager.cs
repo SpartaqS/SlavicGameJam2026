@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour
         Pump,
         ButtonDown,
         ButtonUp,
+        ChillFaucet
     }
 
     public static SoundManager _Instance = null;
@@ -38,7 +39,7 @@ public class SoundManager : MonoBehaviour
         audioSource.Stop();
     }
 
-    private AudioClip GetSoundClip(Sound audio)
+    public AudioClip GetSoundClip(Sound audio)
     {
         foreach (AudioClipOrganized audioClipOrganized in audioClipArray)
         {
@@ -64,26 +65,6 @@ public class SoundManager : MonoBehaviour
         {
             default:
                 return true;
-            case Sound.Pump:
-                if (soundTimerDictionary.ContainsKey(sound))
-                {
-                    float lastTimePlayed = soundTimerDictionary[sound];
-                    float pumpSFXlength = GetSoundClip(Sound.Pump).length;
-                    if (lastTimePlayed + pumpSFXlength < Time.time)
-                    {
-                        soundTimerDictionary[sound] = Time.time;
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else
-                {
-                    soundTimerDictionary.Add(sound, Time.time);
-                    return true;
-                }
         }
     }
 

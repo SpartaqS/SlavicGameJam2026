@@ -141,6 +141,7 @@ MonoBehaviour:
   moveClamp: {x: 0.877, y: 1.581383}
   parameterType: 2
   localAudioSourceManager: {fileID: 8048295618920563722}
+  pitchDiv: 0.34
 --- !u!65 &8986996196687051892
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -266,7 +267,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

@@ -1950,6 +1950,8 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 5f060e8c860d29e4f93166d78668c0f8, type: 3}
   - audio: 2
     audioClip: {fileID: 8300000, guid: 096a3c10abfd50a48b37ef0ad394e58c, type: 3}
+  - audio: 3
+    audioClip: {fileID: 8300000, guid: c120a5f14c971104196dd5503c8be621, type: 3}
 --- !u!1 &500465131
 GameObject:
   m_ObjectHideFlags: 0
@@ -4838,7 +4840,7 @@ MonoBehaviour:
   coolantGDeltaPer100DPerSecond: -1
   coolantBDeltaPer100DPerSecond: -1
   startingRodInputPercent: 10
-  startingFuelAmount: 10
+  startingFuelAmount: 50
   fullFuelInputTemperatureDeltaPerSecond: 20
   fullFuelInputConsumptionDeltaPerSecond: 10
   OnParameterReachInterval:
