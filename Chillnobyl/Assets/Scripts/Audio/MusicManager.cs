@@ -25,7 +25,7 @@ public class MusicManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        StartCoroutine(playMusic(0));
+        //musicAudioSource.PlayOneShot(GetSoundClip(musicPlaylist[0]));
     }
 
     IEnumerator playMusic(int trackIndex)
@@ -33,6 +33,10 @@ public class MusicManager : MonoBehaviour
         int newTrackIndex = trackIndex;
         while (true)
         {
+            if(musicAudioSource.isPlaying)
+            {
+                break;
+            }
             musicAudioSource.PlayOneShot(GetSoundClip(musicPlaylist[newTrackIndex]));
             yield return new WaitForSeconds(GetSoundClip(musicPlaylist[newTrackIndex]).length);
             ++newTrackIndex;
