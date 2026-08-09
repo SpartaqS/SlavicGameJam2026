@@ -5583,6 +5583,23 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2370dd30819a6a4d9b8928fc730fe21, type: 3}
+--- !u!1 &1370508529 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7040719010469123005, guid: 8a4c85ee4c2afa943879b2909455855b, type: 3}
+  m_PrefabInstance: {fileID: 8884545445447854548}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1370508535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370508529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8903a821761db6645bdda06c73ca769b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResetScene
 --- !u!1 &1373409542
 GameObject:
   m_ObjectHideFlags: 0
@@ -6872,6 +6889,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 23cf191b-4253-461f-b089-99d2134ffaeb
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1370508535}
+        m_TargetAssemblyTypeName: ResetScene, Assembly-CSharp
+        m_MethodName: OnResetScene
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1a51b99e-6b8e-492f-b915-49c08b761daa
+    m_ActionName: 'Player/ResetGame[/Keyboard/u]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -8518,7 +8551,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7040719010469123005, guid: 8a4c85ee4c2afa943879b2909455855b, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 1370508535}
   m_SourcePrefab: {fileID: 100100000, guid: 8a4c85ee4c2afa943879b2909455855b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
