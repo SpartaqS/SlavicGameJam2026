@@ -12,6 +12,8 @@ public class FuelRodControl : MonoBehaviour, IParameterControlPanel, IPointerDow
 
     [SerializeField] private ReactorParameterType parameterType = ReactorParameterType.FuelRodInputPercent;
 
+    [SerializeField] LocalAudioSourceManager localAudioSourceManager;
+
     private bool pressed = false;
     private Vector3 startingPos;
 
@@ -62,11 +64,13 @@ public class FuelRodControl : MonoBehaviour, IParameterControlPanel, IPointerDow
     {
         pressed = true;
         transform.localPosition += localPushDirection.normalized * pushDistance;
+        localAudioSourceManager.PlayOneShot(SoundManager.Sound.ButtonDown);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         pressed = false;
+        localAudioSourceManager.PlayOneShot(SoundManager.Sound.ButtonUp);
     }
 
     public ReactorParameterType controlledParameterType => ReactorParameterType.FuelRodInputPercent;
